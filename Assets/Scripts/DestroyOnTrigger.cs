@@ -27,6 +27,7 @@ public class DestroyOnTrigger : MonoBehaviour
 
     IEnumerator MoveNextSceneAfterTwoSeconds(){
         GetComponent<MeshRenderer>().enabled = false;
+        GetComponent<KeyboardSpawner>().enabled = false;
         tmp.GetComponent<TextMeshPro>().enabled = false;
         Instantiate(firePrefab, transform.position, Quaternion.identity);
         yield return new WaitForSeconds(2f);
