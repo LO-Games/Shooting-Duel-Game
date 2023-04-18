@@ -9,6 +9,7 @@ public class DestroyOnTrigger : MonoBehaviour
     [SerializeField] int maxHitPoints = 3;
     [SerializeField] string triggeringTag;
     [SerializeField] GameObject firePrefab;
+    [SerializeField] float sceneTransitionDelay = 2f;
     private TextMeshPro tmp;
     private string nextSceneName = "GameOverScene";
     public static string winnerTag;
@@ -30,7 +31,7 @@ public class DestroyOnTrigger : MonoBehaviour
         GetComponent<KeyboardSpawner>().enabled = false;
         tmp.GetComponent<TextMeshPro>().enabled = false;
         Instantiate(firePrefab, transform.position, Quaternion.identity);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(sceneTransitionDelay);
         SceneManager.LoadScene(nextSceneName);
     }
 
